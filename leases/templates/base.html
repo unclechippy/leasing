@@ -7,7 +7,7 @@
     <meta name="description" content="{{ web_description }}">
     <meta name="author" content="web_author">
 
-    <title>{{ page_title }}</title>
+    <title>{% block title %}{% endblock %}</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -31,8 +31,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/dash/">Dashboard</a></li>
-            <li><a href="/task/new">Create Lease</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'new_lease' %}">Create Lease</a></li>
           </ul>
         </div>
       </div>
