@@ -11,7 +11,9 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	{% block css_header %}{% endblock %}
+  {% load static %}
+  <link href="{% static 'leases/dashboard.css' %}" rel="stylesheet">
+  {% block css_header %}{% endblock %}
     <!-- Custom styles for this template -->
 
   </head>
@@ -41,7 +43,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12 col-md-12 main">
-			{% block content %}{% endblock %}
+			       {% block content %}{% endblock %}
         </div>
       </div>
     </div>
