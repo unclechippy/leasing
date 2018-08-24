@@ -2,6 +2,7 @@ import datetime
 
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import redirect
 
 from django.views import generic
 
@@ -9,7 +10,7 @@ from .models import Lease
 
 #dashboard
 def dashboard(request):
-    template = loader.get_template('lease.html')
+    template = loader.get_template('dashboard.html')
     return HttpResponse(template.render({}, request))
 
 """def lease(request, lease_id):
@@ -34,7 +35,8 @@ def new_lease(request):
         end_date = datetime.datetime.strptime(request.POST.get('end-date'), '%Y-%m-%d')
         lease = Lease(name=name, start_date=start_date, end_date=end_date)
         lease.save()
-        return HttpResponse('Saved!')
+        #return HttpResponse('Saved!')
+        return redirect('lease', pk=lease.pk)
     else:
         template = loader.get_template('new_lease.html')
         return HttpResponse(template.render({}, request))
