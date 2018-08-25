@@ -7,4 +7,8 @@ Dashboard
 {% block content %}
 <h4 class="sub-header">Dashboard</h4>
 
+{% for lease in leases %}
+<div>Lease: <a href="/leases/{{ lease.pk }}">{{ lease.name }}</a></div>
+{% endfor %}
+
 {% endblock %}

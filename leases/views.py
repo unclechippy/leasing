@@ -9,9 +9,17 @@ from django.views import generic
 from .models import Lease
 
 #dashboard
-def dashboard(request):
-    template = loader.get_template('dashboard.html')
-    return HttpResponse(template.render({}, request))
+#def dashboard(request):
+#    template = loader.get_template('dashboard.html')
+#    return HttpResponse(template.render({}, request))
+
+class IndexView(generic.ListView):
+    template_name = 'dashboard.html'
+    context_object_name = 'leases'
+
+    def get_queryset(self):
+        """Return the lease list."""
+        return Lease.objects.order_by('-name')[:5]
 
 """def lease(request, lease_id):
     #try:
