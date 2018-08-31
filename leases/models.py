@@ -5,7 +5,7 @@ CHAR_FIELD_LEN = 50
 class Lease(models.Model):
     name = models.CharField(max_length=CHAR_FIELD_LEN)
     start_date = models.DateField()
-    end_date = models.DateField()
+    end_date = models.DateField(null=True)
 
     def __str__(self):
         return self.name
